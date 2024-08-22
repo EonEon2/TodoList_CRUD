@@ -1,15 +1,15 @@
-import AboutPage from '../pages/AboutPage.vue'
-import MainPage from '../pages/MainPage.vue'
 import { createRouter, createWebHistory } from 'vue-router'
+import todoRouting from './todo'
 
+const MainPage = () => import('../pages/MainPage.vue') // 코드스플리팅 - 레이지로딩
+const AboutPage = () => import('../pages/AboutPage.vue')
 
 const routeConfig = createRouter({
     history: createWebHistory(), // url의 해시코드를 안보이게 하여 깔끔한 URL 사용가능
     routes: [
         {path: "/", component: MainPage},
-
         {path: "/about", component: AboutPage},
-       
+        todoRouting
     ]
 })
 
